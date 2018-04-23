@@ -11,6 +11,7 @@
 
 import os
 import sys
+import numpy as np
 from scipy.spatial.distance import cosine
 from scipy.stats import spearmanr
 from optparse import OptionParser
@@ -23,7 +24,6 @@ class Similarity(object):
         self.vector_dict = {}
         self.read_vector(self.vector_file)
         self.Word_Similarity(similarity_name=self.similarity_file, vec=self.vector_dict)
-
 
     def read_vector(self, path):
         assert os.path.isfile(path), "{} is not a file.".format(path)
@@ -49,7 +49,8 @@ class Similarity(object):
                 values = line.strip().split(' ')
                 if len(values) == 1 or len(values) == 2:
                     continue
-                self.vector_dict[values[0]] = [float(i) for i in values[1:]]
+                # self.vector_dict[values[0]] = np.array([float(i) for i in values[1:]])
+                self.vector_dict[values[0]] = np.array(list(map(float, values[1:])))
                 if index % 2000 == 0:
                     sys.stdout.write("\rHandling with the {} lines, all {} lines.".format(index + 1, all_lines))
             sys.stdout.write("\rHandling with the {} lines, all {} lines.".format(index + 1, all_lines))
@@ -82,8 +83,8 @@ class Similarity(object):
 
 if __name__ == "__main__":
     print("Word Similarity Evaluation")
-    # vector_file = "./Data/zhwiki_skipgram.100d.1q.source"
-    # vector_file = "./Data/zhwiki_skipgram.100d.1q.source"
+
+    # vector_file = "./Data/zhwiki_substoke.100d.source"
     # similarity_file = "./Data/wordsim-240.txt"
     # Similarity(vector_file=vector_file, similarity_file=similarity_file)
 
