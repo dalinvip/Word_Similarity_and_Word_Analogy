@@ -115,7 +115,6 @@ class Analogy(object):
 
                 v1 = np.add(np.subtract(vec[words[1]], vec[words[0]]), vec[words[2]])
                 # v1 = vec[words[1]] - vec[words[0]] + vec[words[2]]
-                # print(v1 == v1_)
                 v2 = vec[words[-1]]
 
                 v2_rank = 1
@@ -153,7 +152,7 @@ class Analogy(object):
               'Total number: {}\n'.format(acc / num,
                                           rank / num,
                                           num))
-        return results
+        # return results
 
 
 if __name__ == "__main__":
@@ -161,7 +160,7 @@ if __name__ == "__main__":
 
     # vector_file = "./Data/zhwiki_substoke.100d.source"
     # analogy_file = "./Data/analogy.txt"
-    # results = Analogy(vector_file=vector_file, analogy_file=analogy_file)
+    # Analogy(vector_file=vector_file, analogy_file=analogy_file)
 
     parser = OptionParser()
     parser.add_option("--vector", dest="vector", help="vector file")
@@ -172,7 +171,7 @@ if __name__ == "__main__":
     analogy_file = options.analogy
 
     try:
-        results = Analogy(vector_file=vector_file, analogy_file=analogy_file)
+        Analogy(vector_file=vector_file, analogy_file=analogy_file)
         print("All Finished.")
     except Exception as err:
         print(err)
