@@ -53,7 +53,9 @@ class Similarity(object):
                 values = line.strip().split(' ')
                 if len(values) == 1 or len(values) == 2:
                     continue
-                # self.vector_dict[values[0]] = np.array([float(i) for i in values[1:]])
+                if len(values) != int(embedding_dim) + 1:
+                    print("Warning {} -line.".format(index + 1))
+                    continue
                 self.vector_dict[values[0]] = np.array(list(map(float, values[1:])))
                 if index % 2000 == 0:
                     sys.stdout.write("\rHandling with the {} lines, all {} lines.".format(index + 1, all_lines))
