@@ -113,7 +113,9 @@ class Analogy(object):
                     print('something is wrong with the {}-th line'.format(line_no))
                     continue
 
-                v1 = np.subtract(vec[words[1]], np.add(vec[words[0]], vec[words[2]]))
+                v1 = np.add(np.subtract(vec[words[1]], vec[words[0]]), vec[words[2]])
+                # v1 = vec[words[1]] - vec[words[0]] + vec[words[2]]
+                # print(v1 == v1_)
                 v2 = vec[words[-1]]
 
                 v2_rank = 1
