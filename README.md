@@ -12,27 +12,27 @@
 ## Word Similarity Usage ##
 
 	Word Similarity Accuracy:
-		if you want to evaluate your similarity file:
-			python word_similarity.py --vector embed_path  --similarity similar_file  
+	    if you want to evaluate your similarity file:
+	        python word_similarity.py --vector embed_path  --similarity similar_file  
 
-		if you want to evaluate on default file (wordsim-240 and wordsim-296)
-			python word_similarity.py --vector embed_path
+	    if you want to evaluate on default file (wordsim-240 and wordsim-296)
+	        python word_similarity.py --vector embed_path
 
 	Find Top 10 similar words:
-		python find_wordSimilarity.py --vector embed_path
+	    python find_wordSimilarity.py --vector embed_path
 
 
 ## Word Analogy Usage ##
 
 	Word Analogy Accuracy:
-		if you want to evaluate your analogy file:
-			python word_analogy.py --vector  embed_path --analogy analogy_file
+	    if you want to evaluate your analogy file:
+	        python word_analogy.py --vector  embed_path --analogy analogy_file
 
-		if you want to evaluate on default file (analogy.txt that from chen)
-			python word_analogy.py --vector embed_path
+	    if you want to evaluate on default file (analogy.txt that from chen)
+	        python word_analogy.py --vector embed_path
 
 	Find the closest analogy:
-		python find_wordAnalogy.py --vector embed_path
+	    python find_wordAnalogy.py --vector embed_path
 
 ## Word Similarity  Output ##
 
