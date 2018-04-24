@@ -23,7 +23,11 @@ class Similarity(object):
         self.similarity_file = similarity_file
         self.vector_dict = {}
         self.read_vector(self.vector_file)
-        self.Word_Similarity(similarity_name=self.similarity_file, vec=self.vector_dict)
+        if self.similarity_file is "":
+            self.Word_Similarity(similarity_name="./Data/wordsim-240.txt", vec=self.vector_dict)
+            self.Word_Similarity(similarity_name="./Data/wordsim-297.txt", vec=self.vector_dict)
+        else:
+            self.Word_Similarity(similarity_name=self.similarity_file, vec=self.vector_dict)
 
     def read_vector(self, path):
         assert os.path.isfile(path), "{} is not a file.".format(path)
@@ -97,11 +101,7 @@ if __name__ == "__main__":
     similarity_file = options.similarity
 
     try:
-        if similarity_file is "":
-            Similarity(vector_file=vector_file, similarity_file="./Data/wordsim-240.txt")
-            Similarity(vector_file=vector_file, similarity_file="./Data/wordsim-297.txt")
-        else:
-            Similarity(vector_file=vector_file, similarity_file=similarity_file)
+        Similarity(vector_file=vector_file, similarity_file=similarity_file)
         print("All Finished.")
     except Exception as err:
         print(err)
