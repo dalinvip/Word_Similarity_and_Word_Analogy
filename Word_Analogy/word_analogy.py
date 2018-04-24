@@ -75,7 +75,7 @@ class Analogy(object):
                 if len(values) == 1 or len(values) == 2:
                     continue
                 if len(values) != int(embedding_dim) + 1:
-                    print("Warning {} -line.".format(index + 1))
+                    print("\nWarning {} -line.".format(index + 1))
                     continue
                 self.vector_dict[values[0]] = np.array(list(map(float, values[1:])))
                 if index % 2000 == 0:
@@ -83,23 +83,19 @@ class Analogy(object):
             sys.stdout.write("\rHandling with the {} lines, all {} lines.".format(index + 1, all_lines))
         print("\nembedding words {}, embedding dim {}.".format(len(self.vector_dict), embedding_dim))
 
-    def worker(self, fname, target, vec, queue):
+    def worker(self, analogy, target, vec, queue):
         line_no = 0
         result = Eval(target)
 
-        with open(fname, 'r', encoding='utf8') as fr:
-
+        with open(analogy, encoding='utf8') as fr:
             while True:
                 line = fr.readline()
                 line_no += 1
-
                 if not line:
                     print('target {} not found'.format(target))
                     break
-
                 if line[0] != ':':
                     continue
-
                 topic = line.split()[1].split('-')[0]
                 if topic == target:
                     print('target {} found. Beginning...'.format(target))
@@ -108,19 +104,16 @@ class Analogy(object):
             while True:
                 line = fr.readline()
                 line_no += 1
-
                 if not line or line[0] == ':':
                     print('target {} finished'.format(target))
                     break
-
                 words = line.split()
                 assert len(words) == 4
-
                 if any([w not in vec for w in words]):
                     print('something is wrong with the {}-th line'.format(line_no))
                     continue
 
-                v1 = vec[words[1]] - vec[words[0]] + vec[words[2]]
+                v1 = np.subtract(vec[words[1]], np.add(vec[words[0]], vec[words[2]]))
                 v2 = vec[words[-1]]
 
                 v2_rank = 1
@@ -132,9 +125,7 @@ class Analogy(object):
                     score = cosine(v1, v)
                     if score < v2_score:
                         v2_rank += 1
-
                 result.update(v2_rank)
-
         queue.put(result)
 
     def Word_Analogy(self, analogy, vec):
@@ -144,7 +135,6 @@ class Analogy(object):
 
         for p in processes:
             p.start()
-
         for p in processes:
             p.join()
 
