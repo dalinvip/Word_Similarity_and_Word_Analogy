@@ -24,7 +24,7 @@ class Analogy(object):
         self.read_vector(self.vector_file)
 
     def read_vector(self, path):
-        assert os.path.isfile(path), "{} is not a file.".format(path)
+        assert os.path.isfile(path), "embedding path is not a file."
         embedding_dim = -1
         with open(path, encoding='utf-8') as f:
             for line in f:
@@ -46,6 +46,9 @@ class Analogy(object):
             for index, line in enumerate(lines):
                 values = line.strip().split(' ')
                 if len(values) == 1 or len(values) == 2:
+                    continue
+                if len(values) != int(embedding_dim) + 1:
+                    print("\nWarning {} -line.".format(index + 1))
                     continue
                 # self.vector_dict[values[0]] = np.array([float(i) for i in values[1:]])
                 self.vector_dict[values[0]] = np.array(list(map(float, values[1:])))
