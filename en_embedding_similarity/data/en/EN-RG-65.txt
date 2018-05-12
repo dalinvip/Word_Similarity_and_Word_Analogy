@@ -62,4 +62,4 @@ autograph	shore	0.06
 fruit	furnace	0.05
 noon	string	0.04
 rooster	voyage	0.04
-cord	smile	0.02
+chord	smile	0.02

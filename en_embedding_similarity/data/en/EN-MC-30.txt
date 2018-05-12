@@ -27,4 +27,4 @@ lad	wizard	0.42
 chord	smile	0.13
 glass	magician	0.11
 rooster	voyage	0.08
-noon	string	0.008
+noon	string	0.08
