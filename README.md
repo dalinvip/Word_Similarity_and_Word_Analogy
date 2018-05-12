@@ -43,6 +43,7 @@
 ## Word Similarity  Output ##
 
 1、Rho Score  
+
 ![](https://i.imgur.com/8w20K4H.jpg)
 
 2、 Top 10 similar words  
