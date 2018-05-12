@@ -42,6 +42,11 @@
 
 ## Word Similarity  Output ##
 
+1、Rho Score  
+![](https://i.imgur.com/8w20K4H.jpg)
+
+2、 Top 10 similar words  
+ 
 	Enter word >> 男人
 	女人, 中年男人, 女孩, 敢爱敢恨, 爱管闲事, 失婚, 男士们, 少妇, 女们, 憨直
 	Enter word >> 中国
@@ -51,16 +56,38 @@
 	
 ## Word Analogy  Output ##
 
+1、Word Analogy Accuracy:
+	
+	Category: city
+	Total count: 175
+	Accuracy: 0.8
+	Mean rank: 4.942857142857143
+
+	Category: family
+	Total count: 272
+	Accuracy: 0.5661764705882353
+	Mean rank: 21.47426470588235
+
+	Category: capital
+	Total count: 677
+	Accuracy: 0.7562776957163959
+	Mean rank: 2.224519940915805
+
+	Total acc: 0.7170818505338078
+	Total mean rank: 7.306049822064057
+	Total number: 1124  
+
+
+2、Find the closest analogy  
+
 	Enter three word >> 男人 女人 男孩
 	[男人 - 女人] is like [男孩 - 女孩]
 	Enter three word >> 北京 上海 纽约
 	[北京 - 上海] is like [纽约 - 布鲁克林]
 
-- output top one
-
 
 ## Question ##
 
-    if you have any question, you can open a issue or email bamtercelboo@{gmail.com, 163.com}.
+- if you have any question, you can open a issue or email bamtercelboo@{gmail.com, 163.com}.
 
-    if you have any good suggestions, you can PR or email me.
+- if you have any good suggestions, you can PR or email me.
