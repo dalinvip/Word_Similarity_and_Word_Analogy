@@ -5,9 +5,15 @@
 
 - Based on the `analogy.txt`, chinese word analogy script.
 
+- English word embedding evaluation([en_embedding_similarity](https://github.com/bamtercelboo/Word_Similarity_and_Word_Analogy/tree/master/en_embedding_similarity))
+
 ## Requirement ##
 
 - python: `3.6.1`
+
+## English word embedding evaluation Usage ##
+
+- About how to evaluate the english word embedding, see  [en-embedding-similarity-README](https://github.com/bamtercelboo/Word_Similarity_and_Word_Analogy/tree/master/en_embedding_similarity) for details.
 
 ## Word Similarity Usage ##
 
