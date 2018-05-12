@@ -39,7 +39,7 @@ The default value for the similarity option is `./data/en`, so can evaluate engl
 
 ## Outputs ##
 
-![](https://i.imgur.com/zR6NcaU.jpg)
+![](https://i.imgur.com/UKm4oTP.jpg)
 
 
 ## Question ##
